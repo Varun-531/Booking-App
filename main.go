@@ -15,34 +15,38 @@ func main() {
 
 	var bookings []string
 	
-	var firstName string 
-	var lastName string 
-	var email string 
-	var userTickets uint
-	fmt.Print("Enter Your First Name: ")
-	fmt.Scan(&firstName)
+	for {
+		var firstName string 
+		var lastName string 
+		var email string 
+		var userTickets uint
+		fmt.Print("Enter Your First Name: ")
+		fmt.Scan(&firstName)
+		
+		fmt.Print("Enter Your Last Name: ")
+		fmt.Scan(&lastName)
+		
+		fmt.Print("Enter Your Email: ")
+		fmt.Scan(&email)
+		
+		fmt.Print("Enter the number of tickets you want: ")
+		fmt.Scan(&userTickets)
+		
+		bookings = append(bookings, firstName+" "+lastName)
 	
-	fmt.Print("Enter Your Last Name: ")
-	fmt.Scan(&lastName)
+		remainingTickets -= userTickets
 	
-	fmt.Print("Enter Your Email: ")
-	fmt.Scan(&email)
+		fmt.Printf("Whole bookings array: %v\n", bookings)
+		fmt.Printf("First booking: %v\n", bookings[0])
+		fmt.Printf("bookings type: %T\n", bookings)
+		fmt.Printf("bookings length: %v\n", len(bookings))
+		
+		fmt.Printf("User %v booked %v tickets\n", firstName, userTickets)
 	
-	fmt.Print("Enter the number of tickets you want: ")
-	fmt.Scan(&userTickets)
+		fmt.Printf("Thank you %v %v for booking %v tickets for %v. Please check your email %v for more details\n", firstName, lastName, userTickets, conferenceName, email)
 	
-	bookings = append(bookings, firstName+" "+lastName)
+		fmt.Printf("We have %v tickets remaining\n", remainingTickets)
+	}
 
-	remainingTickets -= userTickets
-
-	fmt.Printf("Whole bookings array: %v\n", bookings)
-	fmt.Printf("First booking: %v\n", bookings[0])
-	fmt.Printf("bookings type: %T\n", bookings)
-	fmt.Printf("bookings length: %v\n", len(bookings))
 	
-	fmt.Printf("User %v booked %v tickets\n", firstName, userTickets)
-
-	fmt.Printf("Thank you %v %v for booking %v tickets for %v. Please check your email %v for more details\n", firstName, lastName, userTickets, conferenceName, email)
-
-	fmt.Printf("We have %v tickets remaining\n", remainingTickets)
 }
