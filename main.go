@@ -1,17 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	 conferenceName := "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets uint= 50
 
-	fmt.Printf("conferenceName is %T, conferenceTickets is %T, remainingTickets is %T\n", conferenceName, conferenceTickets, remainingTickets)
+	// fmt.Printf("conferenceName is %T, conferenceTickets is %T, remainingTickets is %T\n", conferenceName, conferenceTickets, remainingTickets)
 
-	fmt.Printf("Welcome to Our %v Booking App\n", conferenceName)
-	fmt.Printf("We have total of %v tickets and %v tickets are remaining\n",conferenceTickets, remainingTickets)
-	fmt.Println("Book Your tickets Now!!")
+	// fmt.Printf("Welcome to Our %v Booking App\n", conferenceName)
+	// fmt.Printf("We have total of %v tickets and %v tickets are remaining\n",conferenceTickets, remainingTickets)
+	// fmt.Println("Book Your tickets Now!!")
 
 	var bookings []string
 	
@@ -44,6 +47,14 @@ func main() {
 		fmt.Printf("User %v booked %v tickets\n", firstName, userTickets)
 	
 		fmt.Printf("Thank you %v %v for booking %v tickets for %v. Please check your email %v for more details\n", firstName, lastName, userTickets, conferenceName, email)
+
+		firstNames := []string{}
+		for _,booking := range bookings {
+			var names = strings.Fields(booking) 
+			firstNames = append(firstNames, names[0])
+		}
+
+		fmt.Printf("First Names: %v\n", firstNames)
 	
 		fmt.Printf("We have %v tickets remaining\n", remainingTickets)
 	}
