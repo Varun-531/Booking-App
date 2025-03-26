@@ -13,7 +13,7 @@ func main() {
 	fmt.Printf("We have total of %v tickets and %v tickets are remaining\n",conferenceTickets, remainingTickets)
 	fmt.Println("Book Your tickets Now!!")
 
-	var bookings [50]string
+	var bookings []string
 	
 	var firstName string 
 	var lastName string 
@@ -31,7 +31,7 @@ func main() {
 	fmt.Print("Enter the number of tickets you want: ")
 	fmt.Scan(&userTickets)
 	
-	bookings[0] = firstName+" "+lastName
+	bookings = append(bookings, firstName+" "+lastName)
 
 	remainingTickets -= userTickets
 
